@@ -3,6 +3,9 @@ const express = require('express');
 //creating a route that the front-end can request data from
 const { animals } = require('./data/animals');
 
+//tell our app to use that port, if it has been set, and if not, default to port 3001
+const PORT = process.env.PORT || 3001;
+
 // instantiate the server
 const app = express();
 
@@ -73,7 +76,7 @@ app.get('/api/animals', (req, res) => {
 
 // tell the server to listen for requests
 app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+    console.log(`API server now on port ${PORT}!`);
 });
 
 //navigate to http://localhost:3001/api/animalsLinks to an external site. in your browser to see string in res.
