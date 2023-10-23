@@ -67,10 +67,12 @@ app.get('/api/animals', (req, res) => {
 
     //whatever string of query parameters you use on the URL will become JSON
     let results = animals;
+
     // call the filterByQuery() in the app.get() callback
     if (req.query) {
         results = filterByQuery(req.query, results);
     }
+    
     res.json(results);
 });
 
