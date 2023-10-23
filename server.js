@@ -72,12 +72,12 @@ app.get('/api/animals', (req, res) => {
     if (req.query) {
         results = filterByQuery(req.query, results);
     }
-    
+
     res.json(results);
 });
 
 // tell the server to listen for requests
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
 });
 
