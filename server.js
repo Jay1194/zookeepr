@@ -62,7 +62,13 @@ function filterByQuery(query, animalsArray) {
     return filteredResults;
 }
 
-// add route
+//takes in the id and array of animals and returns a single animal object
+function findById(id, animalsArray) {
+    const result = animalsArray.filter(animal => animal.id === id)[0];
+    return result;
+}
+
+// add get route
 app.get('/api/animals', (req, res) => {
 
     //whatever string of query parameters you use on the URL will become JSON
@@ -72,8 +78,21 @@ app.get('/api/animals', (req, res) => {
     if (req.query) {
         results = filterByQuery(req.query, results);
     }
-
     res.json(results);
+});
+
+// Create a new GET route for animals
+app.get('/api/animals/:id', (req, res) => {
+    const result = findById(req.params.id, animals);
+    
+    //JSON response is a single object instead of an array
+    if (result) {
+        res.json(result);
+
+    //no record exists for the animal being searched for, the client receives a 404 error
+    } else {
+        res.send(404);
+    }
 });
 
 // tell the server to listen for requests
@@ -81,4 +100,3 @@ app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
 });
 
-//navigate to http://localhost:3001/api/animalsLinks to an external site. in your browser to see string in res.
