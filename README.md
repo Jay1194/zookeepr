@@ -22,11 +22,40 @@ ZooKeepr simplifies the process of managing a zoo by offering a user-friendly in
 ### Installation
 
 1. Clone the repository
+   
    ```bash
    git@github.com:Jay1194/zookeepr.git
    
 ## Install dependencies
-  ```bash
-  npm install
+- npm install
 
+## Usage
+1. Open a terminal and navigate to the project directory.
+2. Run the server
+   
+   ```bash
+   node server.js
+   
+3. Access the application at http://localhost:3000 in your web browser.
+4. Use the provided API routes for CRUD operations.
 
+### API Routes
+- GET /animals: Retrieve a list of all animals.
+- GET /animals/:id: Retrieve information about a specific animal.
+- POST /animals: Add a new animal to the database.
+- PUT /animals/:id: Update information about a specific animal.
+- DELETE /animals/:id: Delete a specific animal from the database.
+- Similar routes are available for managing enclosures.
+
+## Technologies Used
+- Node.js
+- Express.js
+- Jest
+
+## Contributing
+- Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## License
+![badge](https://img.shields.io/badge/license-MIT-brightgreen)
+<br />
+This application is covered by the MIT license. 
